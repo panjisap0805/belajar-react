@@ -10,6 +10,11 @@ code {
     monospace;
 }
 
+.actived-category{
+  background-color: #22668A;
+  color: white;
+}
+
 .navbar{
   background-color: #22668A;
 }
