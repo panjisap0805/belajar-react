@@ -30,19 +30,19 @@ export default class Home extends Component {
         this.getListKeranjang();
     }
 
-    // componentDidUpdate(prevState) {
-    //     if (this.state.keranjangs !== prevState.keranjangs) {
-    //         axios
-    //             .get(API_URL + "keranjangs")
-    //             .then(res => {
-    //                 const keranjangs = res.data;
-    //                 this.setState({ keranjangs });
-    //             })
-    //             .catch(error => {
-    //                 console.log(error);
-    //             })
-    //     }
-    // }
+    componentDidUpdate(prevState) {
+        if (this.state.keranjangs !== prevState.keranjangs) {
+            axios
+                .get(API_URL + "keranjangs")
+                .then(res => {
+                    const keranjangs = res.data;
+                    this.setState({ keranjangs });
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
+    }
 
     getListKeranjang = () => {
         axios
