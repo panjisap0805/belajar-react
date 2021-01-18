@@ -10,15 +10,29 @@ code {
     monospace;
 }
 
-.actived-category{
+.actived-category {
   background-color: #22668A;
   color: white;
 }
 
-.navbar{
+.navbar {
   background-color: #22668A;
 }
 
-.btn-primary{
+.btn-primary {
   background-color: #22668A;
+}
+
+.overflow-auto::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and (max-height: 1000px) {
+  .cart {
+    height: 650px;
+  }
+
+  .menu{
+    height: 800px;
+  }
 }

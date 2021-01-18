@@ -30,19 +30,19 @@ export default class Home extends Component {
         this.getListKeranjang();
     }
 
-    componentDidUpdate(prevState) {
-        if (this.state.keranjangs !== prevState.keranjangs) {
-            axios
-                .get(API_URL + "keranjangs")
-                .then(res => {
-                    const keranjangs = res.data;
-                    this.setState({ keranjangs });
-                })
-                .catch(error => {
-                    console.log(error);
-                })
-        }
-    }
+    // componentDidUpdate(prevState) {
+    //     if (this.state.keranjangs !== prevState.keranjangs) {
+    //         axios
+    //             .get(API_URL + "keranjangs")
+    //             .then(res => {
+    //                 const keranjangs = res.data;
+    //                 this.setState({ keranjangs });
+    //             })
+    //             .catch(error => {
+    //                 console.log(error);
+    //             })
+    //     }
+    // }
 
     getListKeranjang = () => {
         axios
@@ -135,10 +135,10 @@ export default class Home extends Component {
                         <ListCategories 
                         changeCategory={this.changeCategory} 
                         clickedCategory={clickedCategory} />
-                        <Col>
+                        <Col className="mt-3">
                             <h4><strong>Menu's</strong></h4>
                             <hr />
-                            <Row>
+                            <Row className="overflow-auto menu">
                                 {menus &&
                                     menus.map((menu) => (
                                         <Menus
@@ -148,7 +148,8 @@ export default class Home extends Component {
                                     ))}
                             </Row>
                         </Col>
-                        <Cart keranjangs={keranjangs} {...this.props}/>
+                        <Cart keranjangs={keranjangs} 
+                        {...this.props} getListKeranjang={this.getListKeranjang}/>
                     </Row>
                 </Container>
             </div>
